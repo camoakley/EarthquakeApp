@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head.ejs') %>
+<head>
+    <title> About Earthquake API </title>
+</head>
+<body class="bg-dark">
+    <h1> About This App </h1>
+    <%- include('partials/nav.ejs') %>
+    <br>
+    <div class="card">
+        <div class="card-body" id="aboutContent">
+            <div>
+                <figcaption> Picture of author: </figcaption>
+                <img alt="Picture of author" id="imgCameron" src="/images/Cameron.jpg" >
+                <p> COakley@csumb.edu </p>
+            </div>
+            <div>
+                <p> My name is Cameron Oakley, and I am a student at CSUMB pursuing Computer Science.
+                    This app was created for me to test my skills using Node.js. This app follows the 
+                    Express framework and demonstrates my skills with HTML, CSS, and JS. 
+                </p>
+                <p>
+                    The purpose of this app is to retrieve information about Earthquakes. The data 
+                    comes from the US Coast Gaurd and is provided by an API. In order to retireve data, 
+                    a start date and end date must be passed to the API. The API also excepts parameters
+                    for magnitudes. The app I created also users to search using only dates. If 
+                    they desire to, they can also filter using magnitude size.
+                </p>
+                <p>
+                    Please feel free to contact me with any questions or concerns!
+                </p>
+                <p>
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+// node package for coordiantes

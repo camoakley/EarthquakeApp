@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head.ejs') %>
+<head>
+    <title> Earthquake API </title>
+</head>
+<body class="bg-dark">
+    <%- include('partials/header.ejs') %>
+    <%- include('partials/nav.ejs') %>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <h2> Search </h2>
+            <form action="/earthquakeData">
+                Start date: <input type="text" id="startTime" name="startTime" minlength="10" maxlength="10" placeholder="YYYY-MM-DD" required size="10">
+                <br><br>
+                End date: <input type="text" id="endTime" name="endTime" minlength="10" maxlength="10" placeholder="YYYY-MM-DD" required size="10">
+                <br><br>
+                Minimum Magnitude (Optional): <input type="number" id="magnitude" min="0" max="10" name="minMag">
+                <br><br>
+                <button formaction="/earthquakeData" id="searchByDate"> Search by date </button>
+                <button formaction="/earthquakeMag" id="searchByMagnitude"> Search by date and minimum magnitude </button>
+            </form>
+        </div>  
+    </div>   
+    
+    <br>
+    <% if((start != "") && (end != "")) { %>
+        <div class="card">
+            <div class="card-body">
+                <h2>Earthquake Data</h2>
+                There were <%= countData %> total earthquakes from <%= start %> to <%= end %>.
+                <table class="table">
+                    <tr>
+                        <th>Location</th> <th>Magnitude</th> 
+                    </tr>
+                    <% for (let i = 0; i < earthquakeArr.length; i++) { %>
+                            <tr>
+                                <th><%=earthquakeArr[i].place%></th> 
+                                <th><%=earthquakeArr[i].mag%></th> 
+                            </tr>
+                        %>
+                    <% } %>
+                </table>
+            </div>  
+        </div> 
+
+    <% } %>
+
+</body>
+</html>
+
+// node package for coordiantes
